@@ -43,6 +43,7 @@ def count():
         else:
             counter.id = 1
             counter.count += 9
+            counter.coount = counter.count^2
             counter.updated_at = datetime.now()
             update_counterbyid(counter)
         return make_succ_response(counter.count)
