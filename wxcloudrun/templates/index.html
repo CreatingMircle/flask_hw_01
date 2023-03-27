@@ -300,6 +300,29 @@
       }
     });
   }
+  function init() {
+    $.ajax("/api/count", {
+      method: "get",
+    }).done(function (res) {
+      if (res && res.data !== undefined) {
+        $(".coount-number").html(res.data);
+      }
+    });
+  }
+  function set(action) {
+    $.ajax("/api/count", {
+      method: "POST",
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      data: JSON.stringify({
+        action: action,
+      }),
+    }).done(function (res) {
+      if (res && res.data !== undefined) {
+        $(".coount-number").html(res.data);
+      }
+    });
+  }
 </script>
 
 </html>
