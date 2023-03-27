@@ -43,7 +43,6 @@ def count():
         else:
             counter.id = 1
             counter.count += 9
-            counter.coount = counter.count^2
             counter.updated_at = datetime.now()
             update_counterbyid(counter)
         return make_succ_response(counter.count)
@@ -52,6 +51,12 @@ def count():
     elif action == 'clear':
         delete_counterbyid(1)
         return make_succ_empty_response()
+
+    # 返回平方
+    elif action == 'pf':
+        num = params['num']
+        numpf = num * num
+        return make_succ_response(numpf)
 
     # action参数错误
     else:
